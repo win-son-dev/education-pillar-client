@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:centralized_library/centralized_library.dart';
 
 enum ThemeEnum {
@@ -10,7 +9,9 @@ class ThemeProvider extends ChangeNotifier
 {
   ThemeEnum currentTheme = ThemeEnum.light;
 
-  ThemeData? currentThemeData;
+  static const Color _seedColor = Color(0xFF261A00);
+
+  ThemeData get currentThemeData => _buildThemeData();
 
   static ThemeProvider? _instance;
   static ThemeProvider get instance
@@ -19,30 +20,56 @@ class ThemeProvider extends ChangeNotifier
     return _instance!;
   }
 
-  Future<void> changeTheme(ThemeEnum theme) async
+  void changeTheme(ThemeEnum theme)
   {
     currentTheme = theme;
-    await _setThemeData();
     notifyListeners();
   }
 
-  Future<void> _setThemeData() async
+  ThemeData _buildThemeData()
   {
-    String themeStr = await rootBundle.loadString(_getThemeJsonPath());
-    final themeJson = jsonDecode(themeStr);
-    currentThemeData = ThemeDecoder.instance.decodeThemeData(themeJson);
+    final brightness = currentTheme == ThemeEnum.light ? Brightness.light : Brightness.dark;
+    final colorScheme = ColorScheme.fromSeed(
+      seedColor: _seedColor,
+      brightness: brightness,
+    );
+
+    return ThemeData(
+      useMaterial3: true,
+      colorScheme: colorScheme,
+      cardTheme: CardThemeData(
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+          side: BorderSide(color: colorScheme.outline, width: 1.5),
+        ),
+        color: colorScheme.surface,
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+      ),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: colorScheme.tertiary,
+          foregroundColor: colorScheme.onTertiary,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        ),
+      ),
+      filledButtonTheme: FilledButtonThemeData(
+        style: FilledButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        ),
+      ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        ),
+      ),
+      textButtonTheme: TextButtonThemeData(
+        style: TextButton.styleFrom(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        ),
+      ),
+    );
   }
 
-  String _getThemeJsonPath()
-  {
-    switch(currentTheme)
-    {
-      case ThemeEnum.light:
-        return "assets/themes/theme_light.json";
-      case ThemeEnum.dark:
-        return "assets/themes/theme_dark.json";
-    }
-  }
   ThemeProvider._init();
-
 }

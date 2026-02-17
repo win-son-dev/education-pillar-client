@@ -350,7 +350,6 @@
         <entry key="drift">
           <value>
             <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/drift-2.31.0/lib" />
               <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/drift-2.30.0/lib" />
             </list>
           </value>
@@ -1386,13 +1385,6 @@
             </list>
           </value>
         </entry>
-        <entry key="sqlite3_flutter_libs">
-          <value>
-            <list>
-              <option value="$USER_HOME$/.pub-cache/hosted/pub.dev/sqlite3_flutter_libs-0.5.41/lib" />
-            </list>
-          </value>
-        </entry>
         <entry key="sqlparser">
           <value>
             <list>
@@ -1759,7 +1751,6 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/dio-5.9.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/dio_web_adapter-2.1.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/drift-2.30.0/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/drift-2.31.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/drift_dev-2.30.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/dynamic_widget_annotation-3.0.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/encrypt-5.0.3/lib" />
@@ -1929,7 +1920,6 @@
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/sqflite_darwin-2.4.2/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/sqflite_platform_interface-2.4.0/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/sqlite3-2.9.4/lib" />
-      <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/sqlite3_flutter_libs-0.5.41/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/sqlparser-0.42.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/stack_trace-1.12.1/lib" />
       <root url="file://$USER_HOME$/.pub-cache/hosted/pub.dev/stream_channel-2.1.4/lib" />

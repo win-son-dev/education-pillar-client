@@ -1,11 +1,10 @@
-import 'package:education/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
 
+import 'di/service_locator.dart';
 import 'education_app.dart';
 
-void main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await ThemeProvider.instance.changeTheme(ThemeEnum.light);
+  setupServiceLocator();
   runApp(const EducationApp());
 }
-
